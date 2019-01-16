@@ -25,10 +25,9 @@ import { HttpService } from './http.service'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-
+    ReactiveFormsModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

@@ -13,20 +13,21 @@ export class HomeComponent implements OnInit {
     private _httpService: HttpService,
     private _route: ActivatedRoute,
     private _router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
-    this._httpService.all().subscribe(data=>{
-      console.log(data);
-      this.authors.push(data['data']);
-    });
+    this._httpService.all()
+      .subscribe(data => {
+        console.log(data['data']);
+        this.authors = data['data'];
+      });
 
   }
 
-  delete(id:any){
-    this._httpService.delete(id).subscribe(data=>{
+  delete(id: any, index) {
+    this._httpService.delete(id).subscribe(data => {
       console.log(data);
-      return;      
+      this.authors.splice(index);
     });
   }
 

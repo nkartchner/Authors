@@ -10,6 +10,8 @@ export class HttpService {
   constructor(private _http: HttpClient) { }
 
   all(){
+    console.log("Calling all from HTTP Service");
+
     return this._http.get(`/api/all`);
   }
   
@@ -18,7 +20,9 @@ export class HttpService {
   }
 
   add(author:any){
-    return this._http.post(`/api/new`, author);
+    console.log("Creating new from HTTP Service");
+
+    return this._http.post("/api/new", author);
   }
 
   update(id:any, author:any){

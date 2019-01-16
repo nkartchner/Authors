@@ -1,19 +1,20 @@
-
 <a routerLink="/home">Home</a>
-    
-    <form class="form_stuff" [formGroup]="newAuthor" (ngSubmit)="addAuthor(); newAuthor.reset()">
-        
-        <div class="form-row inside">
-            <div class="input">
-                <label>Name:</label>
-                <input type="text" class="form-control" formControlName="name">
-            </div>
-            <div *ngIf="newAuthor.invalid && (newAuthor.dirty || newAuthor.touched)" class="alert alert-danger alert_box">
-                <div *ngIf="name.hasError('required')">Name is required</div>
-                <div *ngIf="name.hasError('minlength')">Name must be at least 3 characters long.</div>
-            </div>
+
+<form class="form_stuff" [formGroup]="newAuthor" (submit)="addAuthor(); newAuthor.reset()">
+
+    <div class="form-row inside">
+        <div class="input">
+            <label>Name:</label>
+            <input type="text" class="form-control" formControlName="name">
         </div>
-            <button type="submit" class="btn btn-success" [disabled]="!newAuthor.valid">Submit</button>
-            <button type="reset" class="btn btn-success" (click)="revert()">Reset</button>
+
+        <div *ngIf="newAuthor.invalid && (newAuthor.dirty || newAuthor.touched)" class="alert alert-danger alert_box">
+            <div *ngIf="name.hasError('required')">Name is required</div>
+            <div *ngIf="name.hasError('minlength')">Name must be at least 3 characters long.</div>
+        </div>
         
-    </form>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!newAuthor.valid">Submit</button>
+    <button type="reset" class="btn btn-success" (click)="revert()">Reset</button>
+
+</form>

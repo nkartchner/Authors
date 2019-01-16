@@ -1,25 +1,13 @@
 const controller = require('../controllers/controllers');
+const mongoose = require('mongoose');
+const db_model = require('../models/models');
 
 module.exports = function (app) {
 
-    app.get('/api/all', function (request, response) {
-        controller.getAll(request, response);
-    });
-
-    app.get('/api/:id', function (request, response) {
-        controller.getOne(request, response);
-    });
-
-    app.post('/api/new', function (request, response) {
-        controller.create(request, response);
-    });
-
-    app.put('/api/update/:id', function (request, response) {
-        controller.update(request, response);
-    });
-
-    app.delete('/api/delete/:id', function (request, response) {
-        controller.delete(request, response);
-    });
+    app.get('/api/all', controller.getAll);
+    app.post('/api/new', controller.create);
+    app.put('/api/update/:id', controller.update);
+    app.get('/api/:id', controller.getOne);
+    app.delete('/api/delete/:id', controller.delete);
 
 };

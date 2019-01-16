@@ -28,10 +28,13 @@ export class NewAuthorComponent implements OnInit {
 
 
   addAuthor(){
-    this._httpService.add(this.newAuthor).subscribe(data=>{
-      console.log(data);
-      this._router.navigate(['/home']);
-    });
+    console.log(this.newAuthor.value);
+    this._httpService.add(this.newAuthor.value)
+      .subscribe(data => {
+        console.log("Inside the http service method in the new author component")
+        console.log(data);
+        this._router.navigate(['/home']);
+      });
   }
 
   revert(){
