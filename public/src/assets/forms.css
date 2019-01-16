@@ -1,0 +1,25 @@
+.btn{
+  margin:10px;
+}
+.ng-valid[required], .ng-valid  {
+    border: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border: 3px solid #a94442; /* red */
+  }
+  .form_stuff{
+    /* margin:0px auto; */
+    border:1px solid black;
+    width:400px;
+    height:400px;
+    text-align: center;
+}
+.input{
+    width:300px;
+    margin:0px auto;
+}
+
+.inside, .alert_box{
+    margin:0px auto;
+}
