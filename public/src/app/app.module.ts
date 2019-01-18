@@ -12,7 +12,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { NewAuthorComponent } from './new-author/new-author.component'
 
 import { HttpClientModule } from '@angular/common/http';
-import { HttpService } from './http.service'
+import { HttpService } from './http.service';
+import { QuotesComponent } from './quotes/quotes.component';
+import { NewQuoteComponent } from './new-quote/new-quote.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HttpService } from './http.service'
     EditorComponent,
     HomeComponent,
     PagenotfoundComponent,
-    NewAuthorComponent
+    NewAuthorComponent,
+    QuotesComponent,
+    NewQuoteComponent
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this._httpService.all()
       .subscribe(data => {
-        console.log(data['data']);
         this.authors = data['data'];
       });
 
@@ -26,8 +25,7 @@ export class HomeComponent implements OnInit {
 
   delete(id: any, index) {
     this._httpService.delete(id).subscribe(data => {
-      console.log(data);
-      this.authors.splice(index);
+      this.authors.splice(index, 1);
     });
   }
 

@@ -1,0 +1,19 @@
+<a routerLink="/home">Home</a>
+
+<form class="form_stuff" [formGroup]="newQuote" (submit)="addQuote(); newQuote.reset()">
+
+    <div class="form-row inside">
+        <div class="input">
+            <label>Quote:</label>
+            <input type="text" class="form-control" placeholder="Place Quote Here" formControlName="body" >
+        </div>
+
+        <div *ngIf="newQuote.invalid && (newQuote.dirty || newQuote.touched)" class="alert alert-danger alert_box">
+            <div *ngIf="body.hasError('minlength')">Quote must be at least 3 characters long.</div>
+        </div>
+        
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!newQuote.valid">Submit</button>
+    <button type="reset" class="btn btn-success" [routerLink]="['/quotes', author._id]">Cancel</button>
+
+</form>

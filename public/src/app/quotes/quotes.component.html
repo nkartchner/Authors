@@ -1,0 +1,21 @@
+<a routerLink="/home">Home</a>  <a [routerLink]="['/quotes/new/', author._id]">Add a quote</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Quotes</th>
+      <th>Votes</th>
+      <th>Actions Available</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let q of author.quotes; index as i">
+      <td>{{ q.body }}</td>
+      <td>{{ q.votes }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="Vote(i)">Vote Up</button>
+        <button class="btn btn-warning" (click)="deVote(i)">Vote Down</button>
+        <button class="btn btn-danger" (click)="delete(q, i)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

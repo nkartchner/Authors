@@ -7,12 +7,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let a of authors; i as index">
+        <tr *ngFor="let a of authors; index as i">
             <td>
                 <a>{{ a.name }}</a>
             </td>
             <td>
-                <button class="btn btn-primary" [routerLink]="['/edit/',a._id]">Edit</button>
+                <button class="btn btn-primary" [routerLink]="['/quotes/',a._id]">View Quotes</button>
                 <button class="btn btn-primary" (click)="delete(a._id, i)">Delete</button>
             </td>
         </tr>

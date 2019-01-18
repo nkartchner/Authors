@@ -13,14 +13,19 @@ module.exports = {
         .catch(err => console.log("Something Went wrong!", err) || response.json({ message: "Error", error: err })),
 
 
-    create: (request, response) => {
-        console.log("In the controller!!!! //////////////////////////////////////////////////////////////");
-        db_model.create(request.body)
-            .then(data => console.log(data) || response.json({ message: "Success", data: data }))
-            .catch(err => console.log("Something went wrong!", err) || response.json({ message: "Error", error: err }));
-    },
+    create: (request, response) => db_model.create(request.body)
+        .then(data => console.log(data) || response.json({ message: "Success", data: data }))
+        .catch(err => console.log("Something went wrong!", err) || response.json({ message: "Error", error: err })),
+
+    addQuote: (request, response) => db_model.findByIdAndUpdate({ _id: request.params.id }, { $push: { quotes: request.body } })
+        .then(data => console.log(data) || response.json({ message: "Success", data: data }))
+        .catch(err => console.log("Something went wrong!", err) || response.json({ message: "Error", error: err })),
 
     update: (request, response) => db_model.findByIdAndUpdate({ _id: request.params.id }, request.body)
+        .then(data => console.log(data) || response.json({ message: "Success", data: data }))
+        .catch(err => console.log("Something went wrong", request.body) || response.json({ message: "Error", error: err })),
+
+    deleteQuote: (request, response) => db_model.findByIdAndUpdate({ _id: request.params.aid }, { $pull: { quotes: {_id:request.params.qid }}})
         .then(data => console.log(data) || response.json({ message: "Success", data: data }))
         .catch(err => console.log("Something went wrong", request.body) || response.json({ message: "Error", error: err })),
 
